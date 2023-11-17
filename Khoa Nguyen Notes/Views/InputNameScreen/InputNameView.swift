@@ -14,23 +14,25 @@ struct InputNameView: View {
         }
     }
     var body: some View {
-        VStack {
-            TextField("", text: $name
-                      ,prompt: Text("Enter your name")
-                .foregroundColor(.gray))
-            .foregroundColor(.black)
-            Divider()
-            Spacer().frame(height: 20)
-            
-            NavigationLink(destination: NoteListsView().navigationBarBackButtonHidden(true)) {
-                Text("Confirm")
-                .padding(.horizontal, 30.0)
-                .padding(.vertical, 8)
-                .background(LinearGradient(gradient: Gradient(colors: [.orange, .gray]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                .foregroundStyle(.white)
-                .cornerRadius(8)
+        VStack(alignment: .center, spacing: 8,  content: {
+            Spacer().frame(height: 16)
+            HStack{
+                TextField("", text: $name ,prompt: Text("Enter your name").foregroundColor(.gray).font(.system(size: 20, weight: .regular)))
+                    .foregroundColor(.black)
+                    .font(.system(size: 20, weight: .medium))
+                if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    withAnimation {
+                        NavigationLink(destination: NoteListsView(nameUser: name).navigationBarBackButtonHidden(true)) {
+                            Image(systemName: "arrow.forward.circle.fill")
+                                .foregroundColor(.orange)
+                                .font(.title.weight(.semibold))
+                                .frame(width: 23, height: 23)
+                        }
+                    }
+                }
             }
-        }.padding(20)
+            Divider()
+        }).padding(20)
         
     }
 }

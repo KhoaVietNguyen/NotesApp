@@ -10,11 +10,11 @@ import Foundation
 struct NoteModel : Codable, Identifiable {
     var id = UUID()
     var note : String!
+    var time : String!
 }
 
 struct UserModel : Codable, Identifiable {
     var id = UUID()
-    var listNote = [NoteModel]()
     var name : String!
 }
 

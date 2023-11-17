@@ -10,6 +10,7 @@
 		6E0775AD2B0655C100A2DBF7 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0775AC2B0655C100A2DBF7 /* NoteCell.swift */; };
 		6E0775AF2B06699400A2DBF7 /* NoteListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0775AE2B06699400A2DBF7 /* NoteListsViewModel.swift */; };
 		6E0775B22B0679D100A2DBF7 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0775B12B0679D100A2DBF7 /* AddNoteView.swift */; };
+		6EAEF6C72B079BD5004F8ED1 /* OtherUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAEF6C62B079BD5004F8ED1 /* OtherUserListView.swift */; };
 		8F01A8992B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F01A8982B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist */; };
 		8FF15EF32B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF15EF22B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift */; };
 		8FF15EF52B05C1650061D93F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF15EF42B05C1650061D93F /* ContentView.swift */; };
@@ -55,6 +56,7 @@
 		6E0775AC2B0655C100A2DBF7 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		6E0775AE2B06699400A2DBF7 /* NoteListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListsViewModel.swift; sourceTree = "<group>"; };
 		6E0775B12B0679D100A2DBF7 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		6EAEF6C62B079BD5004F8ED1 /* OtherUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserListView.swift; sourceTree = "<group>"; };
 		8F01A8982B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Khoa-Nguyen-Notes-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8FF15EEF2B05C1650061D93F /* Khoa Nguyen Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Khoa Nguyen Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF15EF22B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Khoa_Nguyen_NotesApp.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				8FF15F4C2B05FF510061D93F /* NoteListsView.swift */,
 				6E0775AC2B0655C100A2DBF7 /* NoteCell.swift */,
 				6E0775AE2B06699400A2DBF7 /* NoteListsViewModel.swift */,
+				6EAEF6C62B079BD5004F8ED1 /* OtherUserListView.swift */,
 			);
 			path = NoteListsScreen;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				8FF15F4D2B05FF510061D93F /* NoteListsView.swift in Sources */,
 				6E0775AF2B06699400A2DBF7 /* NoteListsViewModel.swift in Sources */,
 				8FF15F4F2B05FFEE0061D93F /* NoteModel.swift in Sources */,
+				6EAEF6C72B079BD5004F8ED1 /* OtherUserListView.swift in Sources */,
 				8FF15F402B05D1D60061D93F /* InputNameView.swift in Sources */,
 				6E0775AD2B0655C100A2DBF7 /* NoteCell.swift in Sources */,
 				6E0775B22B0679D100A2DBF7 /* AddNoteView.swift in Sources */,
@@ -451,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Khoa Nguyen Notes/Preview Content\"";
-				DEVELOPMENT_TEAM = 9FSQY74H62;
+				DEVELOPMENT_TEAM = 284QS8GKS9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -491,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Khoa Nguyen Notes/Preview Content\"";
-				DEVELOPMENT_TEAM = 9FSQY74H62;
+				DEVELOPMENT_TEAM = 284QS8GKS9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

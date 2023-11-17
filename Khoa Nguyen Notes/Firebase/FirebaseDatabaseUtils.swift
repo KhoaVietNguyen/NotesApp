@@ -25,7 +25,7 @@ class FirebaseDatabaseUtils {
     
     
     func readArrayData(key: String = "", completed : @escaping (_ data: DataSnapshot) -> Void?, failure : @escaping (_ error: Error?) -> Void?) {
-        let child = nameUser.isEmpty ? key : nameUser
+        let child = key.isEmpty ? nameUser : key
         ref.child(child).observeSingleEvent(of: .value) { data in
             completed(data)
         } withCancel: { error in

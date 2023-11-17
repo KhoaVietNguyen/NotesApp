@@ -11,7 +11,7 @@ import UIKit
 struct AddNoteView: View {
     enum FocusField: Hashable {
         case field
-      }
+    }
     
     @Binding var presentedAsModal: Bool
     @FocusState private var keyboardFocused: FocusField?
@@ -24,44 +24,57 @@ struct AddNoteView: View {
                 Rectangle()
                     .fill(Gradient(colors: [.white, .orange]))
                     .ignoresSafeArea()
-                if viewModel.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    VStack {
-                        Text("Write something...")
-                            .padding(.top, 24)
-                            .padding(.leading, 24)
-                            .foregroundColor(.black)
-                            .opacity(0.6)
-                        Spacer()
-                    }
-                }
                 VStack {
+                    HStack {
+                        Button(action: {
+                            self.presentedAsModal = false
+                        }, label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(.title.weight(.medium))
+                                .foregroundColor(.orange)
+                                .background(Color.white)
+                                .clipShape(Circle())
+                        })
+                        .frame(width: 20, height: 20)
+                        .padding(.horizontal, 20)
+                        
+                        Text("Write Note")
+                            .foregroundColor(.black)
+                            .opacity(0.8)
+                            .font(.system(size: 20, weight: .semibold))
+                        Spacer()
+                        
+                        if !viewModel.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            Button(action: {
+                                viewModel.addNote()
+                            }, label: {
+                                Image(systemName: "square.and.arrow.up.circle.fill")
+                                    .font(.title.weight(.medium))
+                                    .foregroundColor(.orange)
+                                    .background(Color.white)
+                                    .clipShape(Circle())
+                            })
+                            .frame(width: 20, height: 20)
+                            .padding(.trailing, 20)
+                        }
+                    }.padding(.top, 24)
+                    
                     TextEditor(text: $viewModel.text)
-                        .padding()
+                        .font(.system(size: 24))
                         .frame(minHeight: 100, maxHeight: 200)
-                        .opacity(viewModel.text.isEmpty ? 0.85 : 1)
                         .scrollContentBackground(.hidden)
                         .foregroundColor(.black)
                         .focused($keyboardFocused, equals: .field)
                         .task {
                             self.keyboardFocused = .field
                         }
+                        .padding(.horizontal, 16)
+                        .padding(.top, 8)
                     
-                    if !viewModel.text.isEmpty {
-                        Button("Create") {
-                            viewModel.addNote()
-                        }
-                        .padding(.horizontal, 30.0)
-                        .padding(.vertical, 8)
-                        .background(LinearGradient(gradient: Gradient(colors: [.orange, .gray]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .foregroundStyle(.white)
-                        .cornerRadius(8)
+                    .onAppear {
+                        self.bindViewModel()
                     }
-                    Spacer()
                 }
-                .onAppear {
-                    self.bindViewModel()
-                }
-                
             }
         }
     }

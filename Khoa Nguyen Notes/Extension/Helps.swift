@@ -63,11 +63,11 @@ struct LoadingView<Content>: View where Content: View {
                     //Text("Loading...")
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
-                .frame(width: geometry.size.width / 3,
-                       height: geometry.size.width / 3)
-                .background(Color.secondary.colorInvert())
-                .foregroundColor(Color.primary)
-                .cornerRadius(20)
+                .frame(width: 80,
+                       height: 80)
+                .background(Color.primary.colorInvert())
+                .foregroundColor(Color.orange)
+                .cornerRadius(8)
                 .opacity(self.isShowing ? 1 : 0)
 
             }
@@ -78,5 +78,14 @@ struct LoadingView<Content>: View where Content: View {
 extension Bundle {
     var displayName: String? {
         return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+    }
+}
+
+extension Date {
+    func dateAndTimetoString(format: String = "dd/MM/yyy HH:mm") -> String {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            formatter.dateFormat = format
+            return formatter.string(from: self)
     }
 }

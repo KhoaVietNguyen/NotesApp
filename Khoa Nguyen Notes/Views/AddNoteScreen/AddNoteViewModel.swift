@@ -32,7 +32,7 @@ class AddNoteViewModel : ObservableObject {
     
     func addNote() {
         self.isLoading = true
-        let data = NoteModel(note : text.trimmingCharacters(in: .whitespacesAndNewlines))
+        let data = NoteModel(note : text.trimmingCharacters(in: .whitespacesAndNewlines), time: Date().dateAndTimetoString())
 
         firebaseDatabaseUtils.insertData(data.toDictionary) {
             self.viewModelAddNote = .success

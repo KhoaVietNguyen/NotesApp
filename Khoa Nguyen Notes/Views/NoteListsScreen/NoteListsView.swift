@@ -10,12 +10,11 @@ import SwiftUI
 struct NoteListsView: View {
     @StateObject var viewModel = NoteListsViewModel()
     @State var presentingModal = false
-    @State var showMoreOption = false
-    @State var showAllNote = false
     @State var isAddSuccess = false
-    
+    @State var nameUser : String = ""
+    @State var isShowAddBtn = true
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-   
+    
     var body: some View {
         LoadingView(isShowing: $viewModel.isLoading) {
             NavigationView {
@@ -25,149 +24,83 @@ struct NoteListsView: View {
                         .ignoresSafeArea()
                     VStack {
                         BackgroundApp()
-                        ScrollViewReader { proxy in
+                        withAnimation{
                             List {
-                                if self.showAllNote {
-                                    ForEach(viewModel.allNoteList) { data in
-                                        Section(header: HStack {
-                                            Text(data.name).padding()
-                                                .font(.system(size: 18, weight: .bold))
-                                                .foregroundColor(.white)
-                                            Spacer()
-                                        }
-                                
-                                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                                        .background(LinearGradient(gradient: Gradient(colors: [.orange, .gray]), startPoint: .topLeading, endPoint: .bottomTrailing))) {
-                                            ForEach(data.listNote) { data in
-                                                NoteCell(noteData: data).listRowSeparator(.hidden).background(.clear)
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    ForEach(viewModel.noteList) { data in
-                                        NoteCell(noteData: data).listRowSeparator(.hidden).background(.clear)
-                                    }
+                                ForEach(viewModel.noteList) { data in
+                                    NoteCell(noteData: data).listRowSeparator(.hidden).background(.clear)
                                 }
                             }
                             .listStyle(.plain)
                             .refreshable {
-                                if self.showAllNote {
-                                    self.viewModel.getAllUserNote()
-                                } else {
-                                    self.viewModel.getListNote()
-                                }
+                                self.viewModel.getListNote(name: self.nameUser)
                             }
                             .overlay {
-                                if showAllNote {
-                                    if viewModel.allNoteList.isEmpty {
-                                        Text("Oops, looks like there's no data...").foregroundColor(.black).padding()
-                                    }
-                                } else {
-                                    if viewModel.noteList.isEmpty {
-                                        Text("Oops, looks like there's no data...").foregroundColor(.black).padding()
-                                    }
+                                
+                                if viewModel.noteList.isEmpty {
+                                    Text("Oops, looks like there's no data...").foregroundColor(.black).padding()
                                 }
+                                
                             }
                             .onAppear {
                                 UIRefreshControl.appearance().tintColor = .orange
                                 UITableView.appearance().backgroundColor = UIColor.green
                                 UITableViewCell.appearance().backgroundColor = UIColor.green
                             }
-                            .onTapGesture {
-                                self.showMoreOption = false
-                            }
-                            .padding(8)
-                            .onChange(of: true) { newValue in
-                                proxy.scrollTo(0)
-                            }
                         }
                     }
-                    
-                    VStack {
-                        if self.showMoreOption {
-                            Button(action: {
-                                withAnimation {
-                                    presentationMode.wrappedValue.dismiss()
-                                }
-                            }, label: {
-                                Image(systemName: "chevron.backward")
-                                    .font(.title.weight(.semibold))
-                                    .padding(12)
-                                    .background(Color.white)
-                                    .foregroundColor(.orange)
-                                    .clipShape(Circle())
-                                
-                            })
-                            .padding(16)
-                            
-                            
-                            Button(action: {
-                                self.showMoreOption.toggle()
-                                self.showAllNote.toggle()
-                                self.viewModel.getAllUserNote()
-                            }, label: {
-                                Image(systemName: self.showAllNote ? "person.fill" : "person.2.fill")
-                                    .font(.title.weight(.semibold))
-                                    .padding(12)
-                                    .background(Color.white)
-                                    .foregroundColor(.orange)
-                                    .clipShape(Circle())
-                            })
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 0)
-                        }
-                    
-                        Button(action: {
-                            withAnimation {
-                                self.showMoreOption.toggle()
-                            }
-                        }, label: {
-                            Image(systemName: self.showMoreOption ? "square.3.layers.3d.down.forward" : "square.stack.3d.down.forward.fill")
-                                .font(.title.weight(.semibold))
-                                .padding(12)
-                                .background(Color.white)
-                                .foregroundColor(.orange)
-                                .clipShape(Circle())
-                        })
-                        .padding(16)
-                        
-                    }
-                    
-                    
                 }
-                .navigationBarTitle(Text( self.showAllNote ? "All Notes".uppercased() : "Note".uppercased()), displayMode: .automatic)
+                .navigationBarTitle(Text("\(nameUser)'s Note".capitalized), displayMode: .automatic)
+                .navigationBarItems(leading: Button(action: {
+                    withAnimation {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }, label: {
+                    Image(systemName: "arrow.backward.circle.fill")
+                        .foregroundColor(.white)
+                        .font(.title.weight(.regular))
+                        .frame(width: 20, height: 20)
+                }))
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            self.presentingModal = true
-                        }, label: {
-                            Image(systemName: "square.and.pencil")
-                                .font(.title.weight(.semibold))
-                                .padding(6)
-                                .background(Color.white)
-                                .foregroundColor(.orange)
-                                .clipShape(Circle())
-                        })
-                        .padding(.top, 24)
-                        .sheet(isPresented: $presentingModal) {
-                            AddNoteView(presentedAsModal: $presentingModal, isAddSuccess: $isAddSuccess)
-                                .presentationDetents([.height(250),.height(250)]).onDisappear() {
-                                    if(self.isAddSuccess){
-                                        if self.showAllNote {
-                                            self.viewModel.getAllUserNote()
-                                        } else {
-                                            self.viewModel.getListNote()
-                                        }
-                                        self.isAddSuccess = false
-                                    }
-                                }
+                    if isShowAddBtn {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: OtherUserListView().navigationBarBackButtonHidden(true)) {
+                                Image(systemName: "person.2.circle.fill")
+                                    .font(.title.weight(.medium))
+                                    .foregroundColor(.orange)
+                                    .background(Color.white)
+                                    .clipShape(Circle())
+                            }
+                            .frame(width: 20, height: 20)
+                            .padding(.trailing, 20)
                         }
                         
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                self.presentingModal = true
+                            }, label: {
+                                Image(systemName: "square.and.pencil.circle.fill")
+                                    .font(.title.weight(.medium))
+                                    .foregroundColor(.orange)
+                                    .background(Color.white)
+                                    .clipShape(Circle())
+                            })
+                            .frame(width: 20, height: 20)
+                            .padding(.trailing, 8)
+                            .sheet(isPresented: $presentingModal) {
+                                AddNoteView(presentedAsModal: $presentingModal, isAddSuccess: $isAddSuccess)
+                                    .presentationDetents([.height(200),.height(200)]).onDisappear() {
+                                        if(self.isAddSuccess){
+                                            self.viewModel.getListNote(name: self.nameUser)
+                                            self.isAddSuccess = false
+                                        }
+                                    }
+                            }
+                        }
                     }
                 }
             }
         }.onAppear{
-            self.viewModel.getListNote()
+            self.viewModel.getListNote(name: self.nameUser)
         }
     }
 }
@@ -193,6 +126,6 @@ struct WrapperListView<Content: View>: View {
 
 struct NoteListsView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteListsView()
+        NoteListsView(nameUser: "khoa")
     }
 }
