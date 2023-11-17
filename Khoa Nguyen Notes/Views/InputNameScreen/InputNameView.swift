@@ -26,11 +26,10 @@ struct InputNameView: View {
                 Text("Confirm")
                 .padding(.horizontal, 30.0)
                 .padding(.vertical, 8)
-                .background(Gradient(colors: [.red, .orange]))
+                .background(LinearGradient(gradient: Gradient(colors: [.orange, .gray]), startPoint: .topLeading, endPoint: .bottomTrailing))
                 .foregroundStyle(.white)
                 .cornerRadius(8)
             }
-            
         }.padding(20)
         
     }

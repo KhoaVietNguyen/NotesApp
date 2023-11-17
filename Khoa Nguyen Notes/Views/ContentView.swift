@@ -11,18 +11,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                    Rectangle()
-                        .fill(Gradient(colors: [.white, .orange]))
-                        .ignoresSafeArea()
+                Rectangle()
+                    .fill(Gradient(colors: [.white, .orange]))
+                    .ignoresSafeArea()
                 VStack {
                     BackgroundApp()
                     InputNameView()
                     Spacer()
                 }
-                .navigationTitle(Text("Note App"))
-                }
-                
+                .navigationTitle(Text("Khoa's Note App"))
             }
+        }
     }
 }
 

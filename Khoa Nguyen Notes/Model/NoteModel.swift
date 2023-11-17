@@ -12,6 +12,12 @@ struct NoteModel : Codable, Identifiable {
     var note : String!
 }
 
+struct UserModel : Codable, Identifiable {
+    var id = UUID()
+    var listNote = [NoteModel]()
+    var name : String!
+}
+
 let mockData = [
     NoteModel(note: "Hôm nay buồn"),
     NoteModel(note: "Hôm nay buồn"),

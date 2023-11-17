@@ -20,7 +20,7 @@ extension Encodable {
 
 extension UINavigationController {
     open override func viewWillLayoutSubviews() {
-        navigationBar.topItem?.backButtonDisplayMode = .minimal
+       // navigationBar.topItem?.backButtonDisplayMode = .minimal
     }
 }
 
@@ -60,11 +60,11 @@ struct LoadingView<Content>: View where Content: View {
                     .blur(radius: self.isShowing ? 3 : 0)
 
                 VStack {
-                    Text("Loading...")
+                    //Text("Loading...")
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
-                .frame(width: geometry.size.width / 2,
-                       height: geometry.size.height / 5)
+                .frame(width: geometry.size.width / 3,
+                       height: geometry.size.width / 3)
                 .background(Color.secondary.colorInvert())
                 .foregroundColor(Color.primary)
                 .cornerRadius(20)
@@ -73,5 +73,10 @@ struct LoadingView<Content>: View where Content: View {
             }
         }
     }
+}
 
+extension Bundle {
+    var displayName: String? {
+        return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+    }
 }

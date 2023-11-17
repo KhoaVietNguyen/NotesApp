@@ -10,6 +10,7 @@
 		6E0775AD2B0655C100A2DBF7 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0775AC2B0655C100A2DBF7 /* NoteCell.swift */; };
 		6E0775AF2B06699400A2DBF7 /* NoteListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0775AE2B06699400A2DBF7 /* NoteListsViewModel.swift */; };
 		6E0775B22B0679D100A2DBF7 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0775B12B0679D100A2DBF7 /* AddNoteView.swift */; };
+		8F01A8992B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F01A8982B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist */; };
 		8FF15EF32B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF15EF22B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift */; };
 		8FF15EF52B05C1650061D93F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF15EF42B05C1650061D93F /* ContentView.swift */; };
 		8FF15EF72B05C1660061D93F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF15EF62B05C1660061D93F /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		6E0775AC2B0655C100A2DBF7 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		6E0775AE2B06699400A2DBF7 /* NoteListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListsViewModel.swift; sourceTree = "<group>"; };
 		6E0775B12B0679D100A2DBF7 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		8F01A8982B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Khoa-Nguyen-Notes-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8FF15EEF2B05C1650061D93F /* Khoa Nguyen Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Khoa Nguyen Notes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF15EF22B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Khoa_Nguyen_NotesApp.swift; sourceTree = "<group>"; };
 		8FF15EF42B05C1650061D93F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +65,6 @@
 		8FF15F3B2B05D0E50061D93F /* FirebaseDatabaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseUtils.swift; sourceTree = "<group>"; };
 		8FF15F3F2B05D1D60061D93F /* InputNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNameView.swift; sourceTree = "<group>"; };
 		8FF15F412B05D21F0061D93F /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
-		8FF15F442B05D6A00061D93F /* Khoa-Nguyen-Notes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Khoa-Nguyen-Notes-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8FF15F492B05D8580061D93F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FF15F4C2B05FF510061D93F /* NoteListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListsView.swift; sourceTree = "<group>"; };
 		8FF15F4E2B05FFEE0061D93F /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
@@ -136,14 +137,11 @@
 		8FF15EF12B05C1650061D93F /* Khoa Nguyen Notes */ = {
 			isa = PBXGroup;
 			children = (
+				8F01A8982B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist */,
 				8FF15F502B06022D0061D93F /* Extension */,
-				8FF15F492B05D8580061D93F /* GoogleService-Info.plist */,
-				8FF15F442B05D6A00061D93F /* Khoa-Nguyen-Notes-Info.plist */,
 				8FF15F432B05D5050061D93F /* Model */,
 				8FF15F3D2B05D1810061D93F /* Views */,
 				8FF15F3A2B05CF1F0061D93F /* Firebase */,
-				8FF15EF22B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift */,
-				8FF15EF42B05C1650061D93F /* ContentView.swift */,
 				8FF15EF62B05C1660061D93F /* Assets.xcassets */,
 				8FF15EF82B05C1660061D93F /* Khoa_Nguyen_Notes.entitlements */,
 				8FF15EF92B05C1660061D93F /* Preview Content */,
@@ -162,6 +160,7 @@
 		8FF15F3A2B05CF1F0061D93F /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				8FF15F492B05D8580061D93F /* GoogleService-Info.plist */,
 				8FF15F3B2B05D0E50061D93F /* FirebaseDatabaseUtils.swift */,
 			);
 			path = Firebase;
@@ -170,6 +169,8 @@
 		8FF15F3D2B05D1810061D93F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FF15EF22B05C1650061D93F /* Khoa_Nguyen_NotesApp.swift */,
+				8FF15EF42B05C1650061D93F /* ContentView.swift */,
 				6E0775B02B0679BB00A2DBF7 /* AddNoteScreen */,
 				8FF15F4B2B05FF290061D93F /* NoteListsScreen */,
 				8FF15F3E2B05D19C0061D93F /* InputNameScreen */,
@@ -304,6 +305,7 @@
 				8FF15EFB2B05C1660061D93F /* Preview Assets.xcassets in Resources */,
 				8FF15EF72B05C1660061D93F /* Assets.xcassets in Resources */,
 				8FF15F4A2B05D8580061D93F /* GoogleService-Info.plist in Resources */,
+				8F01A8992B0708DC0012A448 /* Khoa-Nguyen-Notes-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +466,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Automatic;
+				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -504,7 +506,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Automatic;
+				"INFOPLIST_KEY_UIUserInterfaceStyle[sdk=*]" = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
