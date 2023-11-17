@@ -32,8 +32,8 @@ The following **required** functionality is completed:
 Here's a walkthrough of implemented user stories:
 
 - Add username 
-![plot](./Demo/1.png = 250x)
-![plot](./Demo/2.png)
+![minipic](./Demo/1.png)
+![minipic](./Demo/2.png)
 
 - List user's note 
 ![plot](./Demo/3.png)
