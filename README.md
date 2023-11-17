@@ -32,22 +32,20 @@ The following **required** functionality is completed:
 Here's a walkthrough of implemented user stories:
 
 - Add username
- <img src="/Demo/1.png" alt="image" width="50%" height="auto">
-![plot](./Demo/1.png){width=150px}
-![plot](./Demo/2.png)
+ <img src="/Demo/1.png" alt="image" width="30%" height="auto">
+ <img src="/Demo/2.png" alt="image" width="30%" height="auto">
 
 - List user's note 
-![plot](./Demo/3.png)
+ <img src="/Demo/3.png" alt="image" width="30%" height="auto">
 
 - Create new note
-![plot](./Demo/3.png)
-![plot](./Demo/4.png)
-![plot](./Demo/5.png)
+<img src="/Demo/4.png" alt="image" width="30%" height="auto">
+<img src="/Demo/5.png" alt="image" width="30%" height="auto">
 
 - Another user
-![plot](./Demo/6.png)
-![plot](./Demo/7.png)
-![plot](./Demo/8.png)
+<img src="/Demo/6.png" alt="image" width="30%" height="auto">
+<img src="/Demo/7.png" alt="image" width="30%" height="auto">
+<img src="/Demo/8.png" alt="image" width="30%" height="auto">
 
 ## License
 
