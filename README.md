@@ -31,7 +31,8 @@ The following **required** functionality is completed:
 ## Walkthrough
 Here's a walkthrough of implemented user stories:
 
-- Add username 
+- Add username
+ <img src="/Demo/1.png" alt="image" width="50%" height="auto">
 ![plot](./Demo/1.png){width=150px}
 ![plot](./Demo/2.png)
 
